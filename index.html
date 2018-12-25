@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset='utf-8'>
+	<title>Bangumi番剧推荐</title>
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css"/>
+	<script src="js/lib/d3.min.js" charset="utf-8"></script>
+	<script src="js/lib/jquery-3.3.1.min.js"></script>
+  </head>
+  <body>
+	<article>
+        <div class="aside-left">
+            left
+        </div>
+        <div class="graph" id="graph"></div>
+        <div class="hover">
+            <div class="search">
+                <form class="search-form">
+                    <input class="search-input">
+                    <button type="button" class="search-btn"></button>
+                </form>
+            </div>
+            <div class="search-result">
+                搜索结果：<span>关闭</span>
+                <div class="search-items"></div>
+            </div>
+            <script src="js/search.js"></script>
+        </div>
+		<div class="aside-right">
+            right
+            <div class="interest-anime"></div>
+            <div class="interest-field"></div>
+            <div class="result"></div>
+        </div>
+	</article>
+	<script src="js/main.js"></script>
+  </body>
+</html>

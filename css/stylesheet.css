@@ -1,0 +1,86 @@
+body {
+    margin: 0px;
+    font-size: 16px;
+	font-family: 'Microsoft Yahei';
+	overflow: hidden;
+}
+
+article .aside-left {
+    position: absolute;
+    visibility: hidden;
+}
+
+article .graph {
+    position: absolute;
+    left: 0%;
+    width: 85%;
+}
+
+article .aside-right {
+    position: absolute;
+    left: 85%;
+    background-color: lightpink;
+    width: 15%;
+    height: 100%;
+}
+
+article .hover {
+    position: absolute;
+    right: 15%;
+    background-color: #ddd;
+    width: 220px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    opacity: 0.9;
+}
+
+.search {
+    margin-left: 8%;
+    margin-right: 8%;
+    padding-left: 5px;
+    height: 32px;
+    border-radius: 5px;
+    background-color: hsla(0, 0%, 100%, .88);
+}
+
+.search input {
+    width: 140px;
+    height: 28px;
+    float: left;
+    outline: none;
+    border-width: 0;
+    font-size: 16px;
+}
+
+.search button {
+    background: url("../images/search.png");
+    width: 32px;
+    height: 32px;
+    border-width: 0;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.search-result {
+    padding: 16px 12px 6px 12px;
+}
+
+.search-result span {
+    float: right;
+    padding-right: 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.search-result .search-items {
+    padding-top: 10px;
+}
+
+.search-result .search-items .search-item {
+    float: left;
+    cursor: pointer;
+    padding: 2px 8px 2px 8px;
+    margin: 3px;
+    border-radius: 6px;
+    background-color: lightpink;
+}

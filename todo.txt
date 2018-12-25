@@ -16,7 +16,7 @@ Bangumi
 ==================================================
 数据结构：
 bangumi表
-id(地址, p) name(番名) name_chs(中文番名) date(放送日期) score(评分) cover_img(封面图) cv_id(声优) director_id(导演) script_id(脚本) storyboard_id(分镜) music_id(音乐) company_id(制作公司)
-前五项为值，第六项为图片，后面为列表
+id(地址, p) name(番名) name_chs(中文番名) date(放送日期) score(评分) cover_img(封面图) tags cv_id(声优) director_id(导演) script_id(脚本) storyboard_id(分镜) music_id(音乐) company_id(制作公司)
+前五项为值，第六项为图片，第七项为数组，后面为列表
 person表
 id(地址, p) name(名字) person_img(人物图)
