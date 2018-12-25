@@ -8,32 +8,64 @@ body {
 /* 页面布局 */
 
 article .aside-left {
+    max-height: 70%;
     position: absolute;
-    visibility: hidden;
+    right: 310px;
+    width: 220px;
+    bottom: 10px;
+    padding: 20px;
+    overflow: auto;
+    background-color: rgb(250, 225, 230);
+    border-radius: 8px;
+    opacity: 0.8;
 }
 
 article .graph {
     position: absolute;
-    left: 0%;
-    width: 85%;
+    left: 0px;
+    right: 300px;
 }
 
 article .aside-right {
     position: absolute;
-    left: 85%;
+    right: 0px;
     background-color: rgba(255, 182, 193, 0.6);
-    width: 15%;
+    width: 300px;
     height: 100%;
+    overflow: auto;
 }
 
 article .hover {
     position: absolute;
-    right: 15%;
+    right: 300px;
     background-color: #ddd;
     width: 220px;
     padding-top: 10px;
     padding-bottom: 10px;
     opacity: 0.9;
+    border-bottom-left-radius: 8px;
+}
+
+/* 左侧边栏 */
+
+.aside-left .aside-left-close {
+    font-size: 14px;
+    float: right;
+    cursor: pointer;
+}
+
+.aside-left .info-field {
+    margin-top: 10px;
+}
+
+.aside-left .h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.aside-left .info-field-score {
+    color: red;
+    font-weight: bold;
 }
 
 /* 右侧边栏 */
@@ -113,7 +145,7 @@ article .hover {
 
 .right-info .field-range::-webkit-slider-thumb {
     -webkit-appearance: none;
-    cursor: default;
+    cursor: pointer;
     top: 0;
     height: 20px;
     width: 20px;
@@ -121,6 +153,21 @@ article .hover {
     background: #fff;
     border-radius: 15px;
     border: 5px solid #51ccee;
+}
+
+.right-info .btn-field {
+    padding-top: 15px;
+}
+
+.right-info .aside-btn {
+    margin-right: 10px;
+    width: 60px;
+    height: 24px;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: #51ccee;
+    cursor: pointer;
+    color: #fff;
 }
 
 /* 搜索框 */

@@ -9,9 +9,6 @@
   </head>
   <body>
 	<article>
-        <div class="aside-left">
-            left
-        </div>
         <div class="graph" id="graph"></div>
         <div class="hover">
             <div class="search">
@@ -25,12 +22,29 @@
                 <div class="search-items"></div>
             </div>
         </div>
+        <div class="aside-left">
+            <img class="info-field-cover" height="150px"><span class="aside-left-close">关闭</span>
+            <div class="info-field h1"><span class="info-field-name"></span></div>
+            <div class="info-field">番名(中文)：<span class="info-field-name_chs"></span></div>
+            <div class="info-field">放送日期：<span class="info-field-date"></span></div>
+            <div class="info-field">制作公司：<span class="info-field-company"></span></div>
+            <div class="info-field info-score">评分：<span class="info-field-score"></span></div>
+            <div class="info-field">声优：<span class="info-field-cv"></span></div>
+            <div class="info-field">导演：<span class="info-field-director"></span></div>
+            <div class="info-field">脚本：<span class="info-field-script"></span></div>
+            <div class="info-field">分镜：<span class="info-field-storyboard"></span></div>
+            <div class="info-field">音乐：<span class="info-field-music"></span></div>
+        </div>
 		<div class="aside-right">
             <div class="right-info">
                 <img class="img-tri" id="aside-showhide-1" src="images/triangle_down.png">
                 你喜欢看什么？
                 <div class="right-info-detail interest-anime">
                     <select name="list" multiple="true"></select>
+                    <div class="btn-field">
+                        <button type="button" class="aside-btn">导入</button>
+                        <button type="button" class="aside-btn">删除</button>
+                    </div>
                 </div>
             </div>
             <div class="right-info">
@@ -59,12 +73,16 @@
                 推荐番剧：
                 <div class="right-info-detail interest-result">
                     <select name="list" multiple="true"></select>
+                    <div class="btn-field">
+                        <button type="button" class="aside-btn">生成</button>
+                    </div>
                 </div>
             </div>
         </div>
 	</article>
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/left.js"></script>
     <script src="js/right.js"></script>
   </body>
 </html>
