@@ -5,6 +5,8 @@ body {
 	overflow: hidden;
 }
 
+/* 页面布局 */
+
 article .aside-left {
     position: absolute;
     visibility: hidden;
@@ -19,7 +21,7 @@ article .graph {
 article .aside-right {
     position: absolute;
     left: 85%;
-    background-color: lightpink;
+    background-color: rgba(255, 182, 193, 0.6);
     width: 15%;
     height: 100%;
 }
@@ -33,6 +35,95 @@ article .hover {
     padding-bottom: 10px;
     opacity: 0.9;
 }
+
+/* 右侧边栏 */
+
+.right-info {
+    margin: 8px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(250, 225, 230);
+}
+
+.right-info .img-tri {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.right-info .right-info-detail {
+    padding: 10px;
+}
+
+.right-info select {
+    width: 100%;
+    height: 200px;
+}
+
+.chooseBtn {
+    display: none;
+}
+
+.choose-label {
+    top: 4px;
+    box-shadow: #ccc 0px 0px 0px 1px;
+    width: 40px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 20px;
+    position: relative;
+    background-color: #bdbdbd;
+    overflow: hidden;
+}
+
+.choose-label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    border-radius: 20px;
+    background-color: #fff;
+    z-index: 20;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.chooseBtn:checked + label.choose-label:before {
+    left: 20px;
+}
+
+.chooseBtn:checked + label.choose-label {
+    background-color: #51ccee;
+}
+
+.right-info .interst-field-form {
+    padding-top: 15px;
+}
+
+.right-info .field-range {
+    margin-left: 20px;
+    width: 150px;
+    -webkit-appearance: none;
+    background-color: #ebeff4;
+    height:4px;
+    padding: 0;
+    border: none;
+}
+
+.right-info .field-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: default;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    transform: translateY(0px);
+    background: #fff;
+    border-radius: 15px;
+    border: 5px solid #51ccee;
+}
+
+/* 搜索框 */
 
 .search {
     margin-left: 8%;

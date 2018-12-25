@@ -24,15 +24,47 @@
                 搜索结果：<span>关闭</span>
                 <div class="search-items"></div>
             </div>
-            <script src="js/search.js"></script>
         </div>
 		<div class="aside-right">
-            right
-            <div class="interest-anime"></div>
-            <div class="interest-field"></div>
-            <div class="result"></div>
+            <div class="right-info">
+                <img class="img-tri" id="aside-showhide-1" src="images/triangle_down.png">
+                你喜欢看什么？
+                <div class="right-info-detail interest-anime">
+                    <select name="list" multiple="true"></select>
+                </div>
+            </div>
+            <div class="right-info">
+                <img class="img-tri" id="aside-showhide-2" src="images/triangle_down.png">
+                你厨什么？
+                <div class="right-info-detail interest-field">
+                    我要自己选：
+                    <input type="checkbox" name="self-select" id="self-select-yes" class="chooseBtn"/>
+                    <label for="self-select-yes" class="choose-label"></label>
+                    <div class="interst-field-form">
+                        作画：<input type="range" class="field-range" id="range-1" min=0 max=100 value=100>
+                    </div>
+                    <div class="interst-field-form">
+                        声优：<input type="range" class="field-range" id="range-2" min=0 max=100 value=100>
+                    </div>
+                    <div class="interst-field-form">
+                        剧情：<input type="range" class="field-range" id="range-3" min=0 max=100 value=100>
+                    </div>
+                    <div class="interst-field-form">
+                        音乐：<input type="range" class="field-range" id="range-4" min=0 max=100 value=100>
+                    </div>
+                </div>
+            </div>
+            <div class="right-info">
+                <img class="img-tri" id="aside-showhide-3" src="images/triangle_down.png">
+                推荐番剧：
+                <div class="right-info-detail interest-result">
+                    <select name="list" multiple="true"></select>
+                </div>
+            </div>
         </div>
 	</article>
-	<script src="js/main.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/right.js"></script>
   </body>
 </html>
