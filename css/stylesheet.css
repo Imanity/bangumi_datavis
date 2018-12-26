@@ -7,6 +7,19 @@ body {
 
 /* 页面布局 */
 
+article .aside-console {
+    max-height: 60%;
+    position: absolute;
+    left: 10px;
+    width: 280px;
+    bottom: 10px;
+    padding: 8px 20px 36px 20px;
+    border-radius: 8px;
+    overflow: auto;
+    background-color: rgb(250, 225, 230);
+    opacity: 0.8;
+}
+
 article .aside-left {
     max-height: 70%;
     position: absolute;
@@ -44,6 +57,85 @@ article .hover {
     padding-bottom: 10px;
     opacity: 0.9;
     border-bottom-left-radius: 8px;
+}
+
+/* 控制台 */
+
+.aside-console .console-header {
+    position: absolute;
+    bottom: 10px;
+}
+
+.aside-console .img-tri {
+    padding-right: 10px;
+    cursor: pointer;
+}
+
+.aside-console .h1 {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.console-content {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.console-content .subtitle {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.console-content .field-range-console {
+    margin-left: 20px;
+    width: 150px;
+    -webkit-appearance: none;
+    background-color: #ebeff4;
+    height:4px;
+    padding: 0;
+    border: none;
+}
+
+.console-content .field-range-console::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    cursor: pointer;
+    top: 0;
+    height: 20px;
+    width: 20px;
+    transform: translateY(0px);
+    background: #fff;
+    border-radius: 15px;
+    border: 5px solid #51ccee;
+}
+
+.console-content .mul-select {
+    width: 100%;
+    height: 180px;
+}
+
+.console-content .btn-field {
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.console-content .console-btn {
+    margin-right: 10px;
+    width: 60px;
+    height: 24px;
+    border-width: 0;
+    border-radius: 5px;
+    background-color: #51ccee;
+    cursor: pointer;
+    color: #fff;
+}
+
+.console-content .single-select {
+    margin-left: 20px;
+    padding-left: 10px;
+    width: 160px;
+    height: 24px;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 /* 左侧边栏 */
@@ -168,6 +260,10 @@ article .hover {
     background-color: #51ccee;
     cursor: pointer;
     color: #fff;
+}
+
+.right-info .aside-btn-right {
+    float: right;
 }
 
 /* 搜索框 */

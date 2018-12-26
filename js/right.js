@@ -49,3 +49,11 @@ function updateShowHideAside() {
         $('.interest-result').hide();
     }
 };
+
+$(".field-range").attr("disabled", true);
+isSelfSelect =  false;
+
+$("#self-select-yes").click(function() {
+    isSelfSelect = !isSelfSelect;
+    $(".field-range").attr("disabled", !isSelfSelect);
+});

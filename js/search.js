@@ -33,11 +33,3 @@ function getSearchResult(str) {
 function selectSearchResult(idx) {
     console.log(searchResult[idx]);
 }
-
-$(".field-range").attr("disabled", true);
-isSelfSelect =  false;
-
-$("#self-select-yes").click(function() {
-    isSelfSelect = !isSelfSelect;
-    $(".field-range").attr("disabled", !isSelfSelect);
-});
