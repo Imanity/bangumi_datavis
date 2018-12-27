@@ -50,6 +50,7 @@ function render() {
             .each(function(d) { d.source = d[0]; d.target = d[d.length - 1]; })
             .attr("class", "link")
             .attr("d", line);
+    
 
     function packageHierarchy(classes) {
         var map = {};
@@ -98,6 +99,7 @@ function render() {
 
         return imports;
     }
+
 }
 
 render();
