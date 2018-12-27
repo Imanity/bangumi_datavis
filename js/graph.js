@@ -30,7 +30,22 @@ function render() {
         .attr("cy", d => d.y * -Math.cos(d.x / 180 * Math.PI))
         .attr("r", 3)
         .attr("cursor", "pointer")
-        .attr("fill", "steelblue")
+        .attr("fill", function(d) {
+            var color_table = ["#000079", "#003D79", "#004B97", "#005AB5", "#0066CC", "#0072E3", "#0080FF", "#2894FF", 
+            "#46A3FF", "#66B3FF", "#84C1FF", "#97CBFF", "#ACD6FF", "#C4E1FF", "#D2E9FF", "#ECF5FF"];
+            var color_id = d.data.score - 5.0;
+            if (color_id < 0) {
+                color_id = 0;
+            }
+            if (color_id > 3.0) {
+                color_id = 3.0;
+            }
+            return color_table[parseInt(15.0 - color_id * 5.0)];
+        })
+        /*.attr("fill", "steelblue")
+        .style("opacity", function(d) {
+            return (d.data.score - 3) / 5;
+        })*/
         .on("mouseover", function(d) {
             d3.select(this).transition()
                 .duration("100")

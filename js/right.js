@@ -84,7 +84,6 @@ $("#aside-btn-1").click(function () {
 });
 
 $("#aside-btn-2").click(function () {
-    console.log(selectedAnimeList);
     for (var i = 0; i < selectedAnimeList.length; i++) {
         if (bangumi[selectedAnimeList[i]].name == $("#selected-anime-list").val()) {
             selectedAnimeList.splice(i, 1);
@@ -121,4 +120,6 @@ $("#range-4").change(function () {
     }
 });
 
-$("")
+$("#aside-btn-4").click(function () {
+    updateSuggest();
+});

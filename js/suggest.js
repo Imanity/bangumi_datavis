@@ -90,7 +90,7 @@ function updateSuggest() {
     script_director_pi /= sum;
     music_pi /= sum;
 
-    var S_suggest = new Array(bangumi.length);
+    var S_suggest = new Array();
     for (var i = 0; i < bangumi.length; ++i) {
         var s_sum = 0;
         for (var j = 0; j < selectedAnimeList.length; ++j) {
@@ -107,5 +107,30 @@ function updateSuggest() {
         }
         S_suggest.push(s_sum);
     }
-    console.log(S_suggest);
+    var S_suggest_ = JSON.parse(JSON.stringify(S_suggest))
+    S_suggest_.sort();
+    
+    var suggest_id = new Array();
+    for (var i = S_suggest_.length; i >= 0; --i) {
+        for (var j = 0; j < S_suggest.length; ++j) {
+            if (S_suggest[j] != S_suggest_[i] || suggest_id.indexOf(j) >= 0) {
+                continue;
+            }
+            suggest_id.push(j);
+            break;
+        }
+    }
+    
+    $('#suggest-anime-list').find('option').remove();
+    var suggest_num = 0, i = -1;
+    console.log(selectedAnimeList);
+    console.log(suggest_id);
+    while (suggest_num < 5) {
+        i += 1;
+        if (selectedAnimeList.indexOf(suggest_id[i]) >= 0) {
+            continue;
+        }
+        $("#suggest-anime-list").append("<option>" + bangumi[suggest_id[i]].name + "</option>");
+        suggest_num += 1;
+    }
 }

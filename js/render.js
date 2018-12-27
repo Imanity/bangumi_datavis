@@ -23,6 +23,7 @@ function updateEdges() {
 updateSimilarity();
 var edges = updateEdges();
 function selectOnePoint(id) {
+    clearSelected();
     for (i in edges[0]){
         if (bangumi[parseInt(edges[0][i][0])].id==id || bangumi[parseInt(edges[0][i][1])].id==id){
             d3.selectAll("circle").filter(function(d) { 
@@ -30,15 +31,16 @@ function selectOnePoint(id) {
             }).attr("fill", "red");
             d3.selectAll('path').filter(function (d) {
                 if( (d.source.data.id == bangumi[parseInt(edges[0][i][0])].id && d.target.data.id == bangumi[parseInt(edges[0][i][1])].id) || ( d.source.data.id == bangumi[parseInt(edges[0][i][1])].id && d.target.data.id == bangumi[parseInt(edges[0][i][0])].id )){
-                    console.log(d.source.data);
-                    console.log(d.target.data)
+                    //console.log(d.source.data);
+                    //console.log(d.target.data)
                 }
                 return (d.source.data.id == bangumi[parseInt(edges[0][i][0])].id && d.target.data.id == bangumi[parseInt(edges[0][i][1])].id) || ( d.source.data.id == bangumi[parseInt(edges[0][i][1])].id && d.target.data.id == bangumi[parseInt(edges[0][i][0])].id );
-            }).style('stroke','red');
+            }).style('stroke','red').style("stroke-width", 5);
         }
     }
 }
 function selectMultiPoint(ids) {
+    clearSelected();
     for (i in ids) {
         d3.selectAll("circle").filter(function(d) { 
             return d.data.id == ids[i];
@@ -60,6 +62,7 @@ var selectedPoint = -1;
 
 function selectPoint(id) {
     clearSelected();
+    selectOnePoint(bangumi[id].id);
     selectedPoint = id;
     d3.selectAll("circle").filter(function(d) { 
         return d.data.id == parseInt(bangumi[id].id);
@@ -70,8 +73,21 @@ function selectPoint(id) {
 
 function clearSelected() {
     selectedPoint = -1;
-    d3.selectAll("circle").attr("fill", "steelblue");
-}
+    d3.selectAll("circle").attr("fill", function(d) {
+        var color_table = ["#000079", "#003D79", "#004B97", "#005AB5", "#0066CC", "#0072E3", "#0080FF", "#2894FF", 
+        "#46A3FF", "#66B3FF", "#84C1FF", "#97CBFF", "#ACD6FF", "#C4E1FF", "#D2E9FF", "#ECF5FF"];
+        var color_id = d.data.score - 5.0;
+        if (color_id < 0) {
+            color_id = 0;
+        }
+        if (color_id > 3.0) {
+            color_id = 3.0;
+        }
+        return color_table[parseInt(15.0 - color_id * 5.0)];
+    });
+
+    d3.selectAll('path').style('stroke','steelblue').style("stroke-width", 1);
+};
 
 function rerender() {
     if (!isSelfSelect) {
