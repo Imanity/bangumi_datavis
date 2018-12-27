@@ -22,7 +22,34 @@ function updateEdges() {
 
 updateSimilarity();
 var edges = updateEdges();
-
+function selectOnePoint(id) {
+    for (i in edges[0]){
+        if (bangumi[parseInt(edges[0][i][0])].id==id || bangumi[parseInt(edges[0][i][1])].id==id){
+            d3.selectAll("circle").filter(function(d) { 
+                return d.data.id == bangumi[parseInt(edges[0][i][0])].id || d.data.id == bangumi[parseInt(edges[0][i][1])].id;
+            }).attr("fill", "red");
+            d3.selectAll('path').filter(function (d) {
+                if( (d.source.data.id == bangumi[parseInt(edges[0][i][0])].id && d.target.data.id == bangumi[parseInt(edges[0][i][1])].id) || ( d.source.data.id == bangumi[parseInt(edges[0][i][1])].id && d.target.data.id == bangumi[parseInt(edges[0][i][0])].id )){
+                    console.log(d.source.data);
+                    console.log(d.target.data)
+                }
+                return (d.source.data.id == bangumi[parseInt(edges[0][i][0])].id && d.target.data.id == bangumi[parseInt(edges[0][i][1])].id) || ( d.source.data.id == bangumi[parseInt(edges[0][i][1])].id && d.target.data.id == bangumi[parseInt(edges[0][i][0])].id );
+            }).style('stroke','red');
+        }
+    }
+}
+function selectMultiPoint(ids) {
+    for (i in ids) {
+        d3.selectAll("circle").filter(function(d) { 
+            return d.data.id == ids[i];
+        }).attr("fill", "red");
+        for (j in ids) {
+            d3.selectAll('path').filter(function (d) {
+                return (d.source.data.id == ids[i] && d.target.data.id == ids[j]) || ( d.source.data.id == ids[j] && d.target.data.id == ids[i] )
+            }).style('stroke','red');
+        }
+    }
+}
 $("#range-connectivity").change(function () {
     edges = updateEdges();
     clear_svg();
