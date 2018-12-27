@@ -60,6 +60,15 @@ $("#self-select-yes").click(function() {
 
 var selectedAnimeList = new Array();
 
+function idxInBangumi(id) {
+    for (i in bangumi) {
+        if (parseInt(bangumi[i].id) == id) {
+            return parseInt(i);
+        }
+    }
+    return -1;
+}
+
 $("#aside-btn-1").click(function () {
     if (selectedPoint < 0) {
         return;
@@ -68,20 +77,48 @@ $("#aside-btn-1").click(function () {
         return;
     }
     selectedAnimeList.push(selectedPoint);
-    idx = -1;
-    for (i in bangumi) {
-        if (parseInt(bangumi[i].id) == selectedPoint) {
-            idx = i;
-            break;
-        }
+    $("#selected-anime-list").append("<option>" + bangumi[selectedPoint].name + "</option>");
+    if (!isSelfSelect) {
+        rerender();
     }
-    if (idx < 0 || bangumi[idx].name == undefined) {
-        return;
-    }
-    $("#selected-anime-list").append("<option>" + bangumi[idx].name + "</option>");
 });
 
 $("#aside-btn-2").click(function () {
-    console.log($('#selected-anime-list option:selected'));
+    console.log(selectedAnimeList);
+    for (var i = 0; i < selectedAnimeList.length; i++) {
+        if (bangumi[selectedAnimeList[i]].name == $("#selected-anime-list").val()) {
+            selectedAnimeList.splice(i, 1);
+            break;
+        }
+    }
     $('#selected-anime-list option:selected').remove();
+    if (!isSelfSelect) {
+        rerender();
+    }
 });
+
+$("#range-1").change(function () {
+    if (isSelfSelect) {
+        rerender();
+    }
+});
+
+$("#range-2").change(function () {
+    if (isSelfSelect) {
+        rerender();
+    }
+});
+
+$("#range-3").change(function () {
+    if (isSelfSelect) {
+        rerender();
+    }
+});
+
+$("#range-4").change(function () {
+    if (isSelfSelect) {
+        rerender();
+    }
+});
+
+$("")

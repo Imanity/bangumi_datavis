@@ -35,13 +35,10 @@ function selectPoint(id) {
     clearSelected();
     selectedPoint = id;
     d3.selectAll("circle").filter(function(d) { 
-        return d.data.id == id;
+        return d.data.id == parseInt(bangumi[id].id);
     }).attr("fill", "red");
-    info = pointInfo(id);
-    if (info == undefined || !info.length) {
-        return;
-    }
-    showInfo(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], info[9], info[10]);
+    showInfo(bangumi[id].name, bangumi[id].name_chs, bangumi[id].date, bangumi[id].score, bangumi[id].cover, bangumi[id].cv_id, 
+        bangumi[id].director_id, bangumi[id].script_id, bangumi[id].storyboard_id, bangumi[id].music_id, bangumi[id].company_id);
 };
 
 function clearSelected() {
@@ -49,46 +46,12 @@ function clearSelected() {
     d3.selectAll("circle").attr("fill", "steelblue");
 }
 
-function pointInfo(id) {
-    info = new Array(11);
-    for (i in bangumi) {
-        if (parseInt(bangumi[i].id) != id) {
-            continue;
-        }
-        if (bangumi[i].name != undefined) {
-            info[0] = bangumi[i].name;
-        }
-        if (bangumi[i].name_chs != undefined) {
-            info[1] = bangumi[i].name_chs;
-        }
-        if (bangumi[i].date != undefined) {
-            info[2] = bangumi[i].date;
-        }
-        if (bangumi[i].score != undefined) {
-            info[3] = bangumi[i].score;
-        }
-        if (bangumi[i].cover != undefined) {
-            info[4] = bangumi[i].cover;
-        }
-        if (bangumi[i].cv_id != undefined) {
-            info[5] = bangumi[i].cv_id;
-        }
-        if (bangumi[i].director_id != undefined) {
-            info[6] = bangumi[i].director_id;
-        }
-        if (bangumi[i].script_id != undefined) {
-            info[7] = bangumi[i].script_id;
-        }
-        if (bangumi[i].storyboard_id != undefined) {
-            info[8] = bangumi[i].storyboard_id;
-        }
-        if (bangumi[i].music_id != undefined) {
-            info[9] = bangumi[i].music_id;
-        }
-        if (bangumi[i].company_id != undefined) {
-            info[10] = bangumi[i].company_id;
-        }
-        break;
+function rerender() {
+    if (!isSelfSelect) {
+        updatePI(selectedAnimeList);
     }
-    return info;
+    updateSimilarity();
+    edges = updateEdges();
+    clear_svg();
+    render();
 }

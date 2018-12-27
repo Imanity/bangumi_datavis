@@ -42,7 +42,7 @@ function render() {
                 .attr("r", 3);
         })
         .on("click", function(d) {
-            selectPoint(d.data.id);
+            selectPoint(idxInBangumi(d.data.id));
         });
 
     link = link.data(packageImports(root.leaves()))
