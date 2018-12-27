@@ -1,10 +1,10 @@
-var cv_list = ["宮野真守", "本渡楓", "田野アサミ", "種田梨沙", "河瀬茉希", "衣川里佳", "田中美海", "三石琴乃", "吉野裕行"];
-var director_list = ["境宗久"];
-var script_list = ["村越繁", "ますもとたくや"];
-var storyboard_list = ["伊藤達文", "境宗久", "清水久敏", "宇田鋼之介", "後藤康徳"];
-var music_list = ["高梨康治", "Funta"];
-var company_list = ["MAPPA", "avex pictures", "CygamesFunta"];
-showInfo("ゾンビランドサガ", "佐贺偶像是传奇", "2018年10月4日", 7.9, 252655, cv_list, director_list, script_list, storyboard_list, music_list, company_list)
+var cv_info_list = ["宮野真守", "本渡楓", "田野アサミ", "種田梨沙", "河瀬茉希", "衣川里佳", "田中美海", "三石琴乃", "吉野裕行"];
+var director_info_list = ["境宗久"];
+var script_info_list = ["村越繁", "ますもとたくや"];
+var storyboard_info_list = ["伊藤達文", "境宗久", "清水久敏", "宇田鋼之介", "後藤康徳"];
+var music_info_list = ["高梨康治", "Funta"];
+var company_info_list = ["MAPPA", "avex pictures", "CygamesFunta"];
+showInfo("ゾンビランドサガ", "佐贺偶像是传奇", "2018年10月4日", 7.9, 252655, cv_info_list, director_info_list, script_info_list, storyboard_info_list, music_info_list, company_info_list)
 
 function list2str(l) {
     var str = "";

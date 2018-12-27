@@ -7,19 +7,13 @@ fw = open("json/iou.js", 'w')
 iou_data = []
 
 def iou(X, Y):
+    res = 0
     if len(X) == 0 and len(Y) == 0:
         return 0.0
-    I = []
-    U = []
     for x in X:
-        U.append(x)
-    for y in Y:
-        if y not in U:
-            U.append(y)
-    for u in U:
-        if u in X and u in Y:
-            I.append(u)
-    return len(I) / len(U)
+        if x in Y:
+            res += 1
+    return float(res)
 
 for i, x in enumerate(bangumi):
     for j, y in enumerate(bangumi):
