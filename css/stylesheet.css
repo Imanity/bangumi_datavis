@@ -129,15 +129,6 @@ article .hover {
     color: #fff;
 }
 
-.console-content .single-select {
-    margin-left: 20px;
-    padding-left: 10px;
-    width: 160px;
-    height: 24px;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
 /* 左侧边栏 */
 
 .aside-left .aside-left-close {

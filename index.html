@@ -28,22 +28,13 @@
                 <span class="h1">控制台</span>
             </div>
             <div class="console-content">
-                连通度阈值：<input type="range" class="field-range-console" id="range-connectivity" min=0 max=100 value=100>
+                连通度阈值：<input type="range" class="field-range-console" id="range-connectivity" min=0 max=100 value=50>
                 <div class="subtitle">选择显示顶点：</div>
                 <select class="mul-select" name="list" multiple="true"></select>
                 <div class="btn-field">
                     <button type="button" class="console-btn">选择</button>
                     <button type="button" class="console-btn">删除</button>
                 </div>
-                分类依据：
-                <select class="single-select">
-                    <option value="company">制作公司</option>
-                    <option value="cv">声优</option>
-                    <option value="director">导演</option>
-                    <option value="script">脚本</option>
-                    <option value="storyboard">分镜</option>
-                    <option value="music">音乐</option>
-                </select>
             </div>
         </div>
         <div class="aside-left">
@@ -105,8 +96,12 @@
                 </div>
             </div>
         </div>
-	</article>
-    <script src="js/main.js"></script>
+    </article>
+    <script src="json/bangumi.js"></script>
+    <script src="json/person.js"></script>
+    <script src="json/iou.js"></script>
+    <script src="js/suggest.js"></script>
+    <script src="js/render.js"></script>
     <script src="js/search.js"></script>
     <script src="js/left.js"></script>
     <script src="js/right.js"></script>
