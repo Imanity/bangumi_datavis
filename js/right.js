@@ -57,3 +57,31 @@ $("#self-select-yes").click(function() {
     isSelfSelect = !isSelfSelect;
     $(".field-range").attr("disabled", !isSelfSelect);
 });
+
+var selectedAnimeList = new Array();
+
+$("#aside-btn-1").click(function () {
+    if (selectedPoint < 0) {
+        return;
+    }
+    if (selectedAnimeList.indexOf(selectedPoint) >= 0) {
+        return;
+    }
+    selectedAnimeList.push(selectedPoint);
+    idx = -1;
+    for (i in bangumi) {
+        if (parseInt(bangumi[i].id) == selectedPoint) {
+            idx = i;
+            break;
+        }
+    }
+    if (idx < 0 || bangumi[idx].name == undefined) {
+        return;
+    }
+    $("#selected-anime-list").append("<option>" + bangumi[idx].name + "</option>");
+});
+
+$("#aside-btn-2").click(function () {
+    console.log($('#selected-anime-list option:selected'));
+    $('#selected-anime-list option:selected').remove();
+});

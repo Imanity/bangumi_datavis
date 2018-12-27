@@ -71,5 +71,3 @@ function updatePI(A) {
         $("#range-" + (i + 1)).val(SA_[i] * 100.0);
     }
 };
-
-updatePI([3, 4, 6, 10, 53, 167, 178, 222, 226]);

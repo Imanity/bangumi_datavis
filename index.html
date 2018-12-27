@@ -55,11 +55,11 @@
                 <img class="img-tri" id="aside-showhide-1" src="images/triangle_down.png">
                 你喜欢看什么？
                 <div class="right-info-detail interest-anime">
-                    <select name="list" multiple="true"></select>
+                    <select name="list" id="selected-anime-list" multiple="true"></select>
                     <div class="btn-field">
-                        <button type="button" class="aside-btn">导入</button>
-                        <button type="button" class="aside-btn">删除</button>
-                        <button type="button" class="aside-btn aside-btn-right">选择</button>
+                        <button type="button" class="aside-btn" id="aside-btn-1">导入</button>
+                        <button type="button" class="aside-btn" id="aside-btn-2">删除</button>
+                        <button type="button" class="aside-btn aside-btn-right" id="aside-btn-3">选择</button>
                     </div>
                 </div>
             </div>
@@ -100,6 +100,7 @@
     <script src="json/bangumi.js"></script>
     <script src="json/person.js"></script>
     <script src="json/iou.js"></script>
+    <script src="json/cluster.js"></script>
     <script src="js/tree.js"></script>
     <script src="js/suggest.js"></script>
     <script src="js/render.js"></script>
