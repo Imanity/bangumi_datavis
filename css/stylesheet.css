@@ -309,3 +309,16 @@ article .hover {
     border-radius: 6px;
     background-color: lightpink;
 }
+
+/* 图表 */
+
+#graph .node {
+    font: 10px sans-serif;
+}
+
+#graph .link {
+    stroke: steelblue;
+    stroke-opacity: 0.5;
+    fill: none;
+    pointer-events: none;
+}
