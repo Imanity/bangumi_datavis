@@ -12,10 +12,40 @@ function list2str(l) {
 function findPerson(id) {
     for (i in person) {
         if (parseInt(person[i].id) == id) {
-            return person[i].name;
+            return "<span onclick='showPerson(" + id + ");' style='cursor:pointer'>" + person[i].name + "</span>";
         }
     }
     return "";
+}
+
+function showPerson(id) {
+    bangumi_person_list = new Array();
+    if (cv_list[id] != undefined) {
+        bangumi_person_list = cv_list[id];
+    } else if (company_list[id] != undefined) {
+        bangumi_person_list = company_list[id];
+    } else if (music_list[id] != undefined) {
+        bangumi_person_list = music_list[id];
+    } else if (storyboard_list[id] != undefined) {
+        bangumi_person_list = storyboard_list[id];
+    } else if (script_list[id] != undefined) {
+        bangumi_person_list = script_list[id];
+    } else if (director_list[id] != undefined) {
+        bangumi_person_list = director_list[id];
+    }
+
+    $('#show-anime-list').find('option').remove();
+    showAnimeList = new Array();
+    for (i in bangumi_person_list) {
+        var bangumi_idx = idxInBangumi(parseInt(bangumi_person_list[i]));
+        var bangumi_name = bangumi[bangumi_idx].name;
+        $("#show-anime-list").append("<option>" + bangumi_name + "</option>");
+        showAnimeList.push(bangumi_idx);
+    }
+
+    $(".single-select").val("graph-mode-2");
+    renderMulLineMode = true;
+    rerender();
 }
 
 function showInfo(name, name_chs, date, score, cover_img, cv, director, script, storyboard, music, company) {
