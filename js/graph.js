@@ -1,4 +1,6 @@
 var diameter = 900, radius = diameter / 2, innerRadius = radius - 120;
+var width = $(window).width() - 300;
+var height = $(window).height();
 var cluster = d3.cluster()
                 .size([360, innerRadius]);
 var line = d3.radialLine()
@@ -6,10 +8,23 @@ var line = d3.radialLine()
             .radius(function(d) { return d.y; })
             .angle(function(d) { return d.x / 180 * Math.PI; });
 var svg = d3.select("#graph").append("svg")
-            .attr("width", diameter)
-            .attr("height", diameter)
+            .attr("width", width)
+            .attr("height", height)
             .append("g")
-            .attr("transform", "translate(" + radius + "," + radius + ")");
+            .attr("class", "global_g")
+            .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+function update_svg() {
+    var width = $(window).width() - 300;
+    var height = $(window).height();
+    svg.attr("width", width)
+        .attr("height", height);
+    d3.select(".global_g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+    clear_svg();
+    render();
+}
+
+d3.select(window).on('resize', update_svg);
 
 function clear_svg() {
     svg.selectAll("*").remove();
