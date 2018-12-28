@@ -64,7 +64,40 @@ function render() {
         .enter().append("path")
             .each(function(d) { d.source = d[0]; d.target = d[d.length - 1]; })
             .attr("class", "link")
-            .attr("d", line);
+            .attr("d", line)
+            .style('stroke',function (d){
+                s = parseInt(map_id_list[d.source.data.id]);
+                t = parseInt(map_id_list[d.target.data.id]);
+                var color_table = ["#000079", "#003D79", "#004B97", "#005AB5", "#0066CC", "#0072E3", "#0080FF", "#2894FF", 
+            "#46A3FF", "#66B3FF", "#84C1FF", "#97CBFF", "#ACD6FF", "#C4E1FF", "#D2E9FF", "#ECF5FF"];
+                t = (Math.max(s,t)).toString();
+                s = (Math.min(s,t)).toString();
+                for (i in edges[0]){
+                    if(edges[0][i][0]==s && edges[0][i][1]==t){
+                        x = parseInt(edges[1][i]*3);
+                        if(x>10){
+                            x=10;
+                        }
+                        return color_table[10-x];
+                    }
+                }
+            })
+            .style('stroke-width',function (d){
+                s = parseInt(map_id_list[d.source.data.id]);
+                t = parseInt(map_id_list[d.target.data.id]);
+                
+                t = (Math.max(s,t)).toString();
+                s = (Math.min(s,t)).toString();
+                for (i in edges[0]){
+                    if(edges[0][i][0]==s && edges[0][i][1]==t){
+                        x = parseInt(edges[1][i]*6);
+                        if(x>30){
+                            x=30;
+                        }
+                        return x/10;
+                    }
+                }
+            });
     
 
     function packageHierarchy(classes) {

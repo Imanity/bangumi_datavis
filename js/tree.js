@@ -6,6 +6,10 @@ for (var i = 0; i < person.length; i++) {
         id_list.push(i);
     }
 }
+var map_id_list={};
+for (i in bangumi){
+    map_id_list[bangumi[i].id] = i.toString();
+}
 var company_list = {};
 var cv_list = {};
 var music_list = {};
