@@ -1,11 +1,12 @@
-id_list = new Array();
-for (var i = 0; i < person.length; i++) {
-    if (person[i].id in id_list) {
-        person.splice(i,1);
-    } else {
-        id_list.push(i);
+var new_person_list = new Array();
+var new_person_id_list = new Array();
+for (var i = 0; i < person.length; ++i) {
+    if (new_person_id_list.indexOf(person[i].id) < 0) {
+        new_person_id_list.push(person[i].id);
+        new_person_list.push(person[i]);
     }
 }
+person = new_person_list;
 var map_id_list={};
 for (i in bangumi){
     map_id_list[bangumi[i].id] = i.toString();
