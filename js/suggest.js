@@ -29,7 +29,6 @@ function updateSimilarity() {
 };
 
 function updatePI(A) {
-    console.log(A);
     var SA = new Array(6);
     var SB = new Array(6);
     for (var i = 0; i < 6; ++i) {

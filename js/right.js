@@ -67,7 +67,7 @@ function idxInBangumi(id) {
         }
     }
     return -1;
-}
+};
 
 $("#aside-btn-1").click(function () {
     if (selectedPoint < 0) {
@@ -122,4 +122,15 @@ $("#range-4").change(function () {
 
 $("#aside-btn-4").click(function () {
     updateSuggest();
+});
+
+$("#selected-anime-list").change(function () {
+    var select_id = -1;
+    for (i in bangumi) {
+        if (bangumi[i].name == $("#selected-anime-list").val()) {
+            select_id = parseInt(i);
+            break;
+        }
+    }
+    selectPoint(select_id);
 });

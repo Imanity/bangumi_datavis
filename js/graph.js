@@ -50,11 +50,22 @@ function render() {
             d3.select(this).transition()
                 .duration("100")
                 .attr("r", 6);
+            var x_pos = (d.y + 22) * Math.sin(d.x / 180 * Math.PI) - 15;
+            var y_pos = (d.y + 22) * -Math.cos(d.x / 180 * Math.PI) + 5;
+            var x_len = d.data.name.visualLength() - 20;
+            if (Math.sin(d.x / 180 * Math.PI) < 0) {
+                x_pos -= x_len;
+            }
+            svg.append("text").text(d.data.name)
+                .attr("x", x_pos)
+                .attr("font-size", "16px")
+                .attr("y", y_pos);
         })
         .on("mouseout", function(d) {
             d3.select(this).transition()
                 .duration("100")
                 .attr("r", 3);
+            d3.selectAll("text").remove();
         })
         .on("click", function(d) {
             selectPoint(idxInBangumi(d.data.id));

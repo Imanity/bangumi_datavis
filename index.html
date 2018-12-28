@@ -30,11 +30,16 @@
             <div class="console-content">
                 连通度阈值：<input type="range" class="field-range-console" id="range-connectivity" min=0 max=100 value=50>
                 <div class="subtitle">选择显示顶点：</div>
-                <select class="mul-select" name="list" multiple="true"></select>
+                <select class="mul-select" id="show-anime-list" name="list" multiple="true"></select>
                 <div class="btn-field">
-                    <button type="button" class="console-btn">选择</button>
-                    <button type="button" class="console-btn">删除</button>
+                    <button type="button" class="console-btn" id="console-btn-1">选择</button>
+                    <button type="button" class="console-btn" id="console-btn-2">删除</button>
+                    <button type="button" class="console-btn" id="console-btn-3">刷新</button>
                 </div>
+                <div>线显示模式：<select class="single-select">
+                    <option value="graph-mode-1">连通域</option>
+                    <option value="graph-mode-2">子图</option>
+                </select></div>
             </div>
         </div>
         <div class="aside-left">
@@ -59,7 +64,6 @@
                     <div class="btn-field">
                         <button type="button" class="aside-btn" id="aside-btn-1">导入</button>
                         <button type="button" class="aside-btn" id="aside-btn-2">删除</button>
-                        <button type="button" class="aside-btn aside-btn-right" id="aside-btn-3">选择</button>
                     </div>
                 </div>
             </div>
@@ -91,12 +95,12 @@
                     <select name="list" multiple="true" id="suggest-anime-list"></select>
                     <div class="btn-field">
                         <button type="button" class="aside-btn" id="aside-btn-4">生成</button>
-                        <button type="button" class="aside-btn aside-btn-right" id="aside-btn-5">选择</button>
                     </div>
                 </div>
             </div>
         </div>
     </article>
+    <span id="ruler"></span>
     <script src="json/bangumi.js"></script>
     <script src="json/person.js"></script>
     <script src="json/iou.js"></script>

@@ -24,6 +24,9 @@ updateSimilarity();
 var edges = updateEdges();
 function selectOnePoint(id) {
     clearSelected();
+    if (renderMulLineMode) {
+        return;
+    }
     for (i in edges[0]){
         if (bangumi[parseInt(edges[0][i][0])].id==id || bangumi[parseInt(edges[0][i][1])].id==id){
             d3.selectAll("circle").filter(function(d) { 
@@ -41,6 +44,9 @@ function selectOnePoint(id) {
 }
 function selectMultiPoint(ids) {
     clearSelected();
+    if (!renderMulLineMode) {
+        return;
+    }
     for (i in ids) {
         d3.selectAll("circle").filter(function(d) { 
             return d.data.id == ids[i];
@@ -48,7 +54,7 @@ function selectMultiPoint(ids) {
         for (j in ids) {
             d3.selectAll('path').filter(function (d) {
                 return (d.source.data.id == ids[i] && d.target.data.id == ids[j]) || ( d.source.data.id == ids[j] && d.target.data.id == ids[i] )
-            }).style('stroke','red');
+            }).style('stroke','red').style("stroke-width", 5);
         }
     }
 }
@@ -56,6 +62,13 @@ $("#range-connectivity").change(function () {
     edges = updateEdges();
     clear_svg();
     render();
+    if (renderMulLineMode) {
+        var idxs = new Array();
+        for (i in showAnimeList) {
+            idxs.push(bangumi[showAnimeList[i]].id);
+        }
+        selectMultiPoint(idxs);
+    }
 });
 
 var selectedPoint = -1;
@@ -97,4 +110,17 @@ function rerender() {
     edges = updateEdges();
     clear_svg();
     render();
+    if (renderMulLineMode) {
+        var idxs = new Array();
+        for (i in showAnimeList) {
+            idxs.push(bangumi[showAnimeList[i]].id);
+        }
+        selectMultiPoint(idxs);
+    }
 }
+
+String.prototype.visualLength = function() { 
+    var ruler = $("#ruler"); 
+    ruler.text(this); 
+    return ruler[0].offsetWidth; 
+} 
