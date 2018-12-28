@@ -134,3 +134,14 @@ $("#selected-anime-list").change(function () {
     }
     selectPoint(select_id);
 });
+
+$("#suggest-anime-list").change(function () {
+    var select_id = -1;
+    for (i in bangumi) {
+        if (bangumi[i].name == $("#suggest-anime-list").val()) {
+            select_id = parseInt(i);
+            break;
+        }
+    }
+    selectPoint(select_id);
+});

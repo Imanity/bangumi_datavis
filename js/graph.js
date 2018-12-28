@@ -84,12 +84,12 @@ function render() {
                 t = (Math.max(s,t)).toString();
                 s = (Math.min(s,t)).toString();
                 for (i in edges[0]){
-                    if(edges[0][i][0]==s && edges[0][i][1]==t){
-                        x = parseInt(edges[1][i]*3);
-                        if(x>10){
-                            x=10;
+                    if(edges[0][i][0] == s && edges[0][i][1] == t){
+                        x = parseInt(edges[1][i] * 3);
+                        if(x > 6){
+                            x = 6;
                         }
-                        return color_table[10-x];
+                        return color_table[6 - x];
                     }
                 }
             })
@@ -100,12 +100,12 @@ function render() {
                 t = (Math.max(s,t)).toString();
                 s = (Math.min(s,t)).toString();
                 for (i in edges[0]){
-                    if(edges[0][i][0]==s && edges[0][i][1]==t){
-                        x = parseInt(edges[1][i]*6);
-                        if(x>30){
-                            x=30;
+                    if(edges[0][i][0] == s && edges[0][i][1] == t){
+                        x = parseInt(edges[1][i] * 10);
+                        if(x > 30){
+                            x = 30;
                         }
-                        return x/10;
+                        return x / 8;
                     }
                 }
             });
