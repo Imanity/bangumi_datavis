@@ -2,7 +2,7 @@ var searchResult;
 
 $(".search-result").hide();
 
-$(".search-btn").click(function(e){
+function emit_search() {
     if ($(".search-input").val() == "") {
         $(".search-result").hide();
         return;
@@ -13,6 +13,18 @@ $(".search-btn").click(function(e){
     for (idx in searchResult) {
         $(".search-items").append("<div class=\"search-item\" onclick=\"selectSearchResult(" + idx + ")\">" + searchResult[idx].name + "</div>");
     }
+}
+
+$(".search-form").keypress(function(e) {
+    var charCode = e.charCode || e.keyCode || e.which;
+    if (charCode == 13) {
+        emit_search();
+        return false;
+    }
+})
+
+$(".search-btn").click(function(e){
+    emit_search();
 });
 
 $(".search-result span").click(function(e){
