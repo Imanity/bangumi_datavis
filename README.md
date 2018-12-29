@@ -1,6 +1,9 @@
 # bangumi_datavis
 Data visualization of bangumi.tv.
-Assignment for coarse "Data Visualization and Data Analyse"
+Assignment for coarse "Data Visualization and Data Analyse".
+
+### Link
+Visit: http://imanity.cn/bangumi_datavis/
 
 ### Requirements
 * Python 3.7.0
